@@ -102,37 +102,27 @@ class VinController extends Controller
         ]);
     }
 
+    /**
+     * Récupère les vins de la SAQ en utilisant le service SAQService
+     * Récupère les produits d'une page de résultats de la SAQ
+     * Filtre le résultat pour ne garder que les bouteilles de vin
+     * Formate les attributs des bouteilles de vin filtrées
+     * Retourne la liste des bouteilles de vin formatées
+     * @param SAQService $service
+     * @return array   
+     */
     public function getVinsSaq(SAQService $service)
     {
-        $page = 1;
-        $pageSize = 100;
-        $vinFormattees = [];
+        // Récupérer les produits d'une page de résultats de la SAQ'
+        $resultat = $service->getWines();
 
-        // Récupérer le nombre total de produits pour calculer le nombre de pages
-        $resultat = $service->getWines($page, $pageSize);
-        $total = $resultat['total'];
-        $totalPages = ceil($total / $pageSize);
+        // Filtrer le resultat pour ne garder que les bouteilles de vin
+        $bouteillesVinFiltrees = $service->filtrerVins($resultat['bouteilles_de_vin']);
 
+        // Formater les attributs des bouteilles de vin filtrées
+        $bouteillesVinFormattees = $service->formatterAttributsVins($bouteillesVinFiltrees);
 
-        // Récupérer les produits page par page
-        while ($page <= $totalPages) {
-            // Récupérer les produits de la page actuelle
-            $resultat = $service->getWines($page, $pageSize);
-
-            // Filtrer les produits pour ne garder que les bouteilles de vin
-            $bouteillesVinFiltrees = $service->filtrerVins($resultat['bouteilles_de_vin']);
-
-            // Formater les attributs des bouteilles de vin filtrées
-            $bouteillesVinFormattees = $service->formatterAttributsVins($bouteillesVinFiltrees);
-
-            // Ajouter les bouteilles de vin formatées à la liste finale
-            foreach ($bouteillesVinFormattees as $vin) {
-                $vinFormattees[] = $vin;
-            }
-            $page++;
-        }
-
-        //  Retourner la liste finale des bouteilles de vin formatées
-        return $vinFormattees;
+        //  Retourner la liste des bouteilles de vin formatées
+        return $bouteillesVinFormattees;
     }
 }
