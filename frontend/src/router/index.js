@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import CreationUsager from "../pages/usager/creationUsager.vue";
-
+import CreationUsager from "../pages/usager/CreationUsager.vue";
 import Home from "../pages/Home.vue";
 import Cart from "../pages/Cart.vue";
+import ConnexionUsager from "../pages/usager/ConnexionUsager.vue";
 
 const routes = [
   {
@@ -13,6 +13,10 @@ const routes = [
   {
     path: "/cart",
     component: Cart,
+  },
+  {
+    path: "/connexion-usager",
+    component: ConnexionUsager,
   },
   {
     path: "/creation-usager",
