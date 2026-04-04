@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\AuthController;
 
 class UsagerController extends Controller
 {
@@ -67,5 +68,10 @@ class UsagerController extends Controller
             'message' => 'Usager créé avec succès',
             'data' => $usager
         ], 201);
+    }
+
+    public function afficherUsager(Request $request)
+    {
+        return response()->json($request->user());
     }
 }
