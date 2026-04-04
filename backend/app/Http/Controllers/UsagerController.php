@@ -120,6 +120,28 @@ class UsagerController extends Controller
             'data' => $usager
         ]);
     }
+    
+    /**
+    * Affiche les informations d’un usager spécifique.
+    * @param int $id 
+    * @return JsonResponse 
+    */
+    public function show($id)
+    {
+        try {
+            $usager = Usager::findOrFail($id);
+
+            return response()->json([
+                'data' => $usager
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Erreur serveur',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
+    
 
     // Supprimer le compte de l'usager connecté
     public function supprimerUsager(Request $request)
