@@ -5,6 +5,7 @@ import ModifierUsager from "../pages/usager/ModifierUsager.vue";
 import Home from "../pages/Home.vue";
 import Cart from "../pages/Cart.vue";
 import ConnexionUsager from "../pages/usager/ConnexionUsager.vue";
+import ProfilUsager from "../pages/usager/ProfilUsager.vue";
 
 const routes = [
   {
@@ -26,6 +27,8 @@ const routes = [
   {
     path: "/usager/modifier/:id",
     component: ModifierUsager,
+    path: "/profil-usager",
+    component: ProfilUsager,
   },
 ];
 
