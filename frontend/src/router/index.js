@@ -41,8 +41,6 @@ const routes = [
     path: "/catalogue",
     component: Home,
     meta: { requiresAuth: true },
-//    to test pagination:
-//    meta: { requiresAuth: false }, 
   },
   {
     path: "/creer-cellier",
