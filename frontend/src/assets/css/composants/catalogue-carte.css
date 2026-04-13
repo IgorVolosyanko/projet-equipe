@@ -9,21 +9,25 @@
   transition: 0.2s;
   display: flex;
   flex-direction: column;
-  height: 145px;
+  /* height: 145px; */
   border: var(--espace-mini) solid black;
   position: relative;
   overflow: hidden;
 }
 
 .image-conteneur {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: center;
   padding: var(--espace-moyen-mini);
 }
 
-.image {
+.image-conteneur .image {
   height: 140px;
   object-fit: contain;
   margin-left: var(--espace-petit);
+  padding-top: 10px;
 }
 
 /* contenu */
@@ -209,4 +213,26 @@
   font-weight: bold;
   text-align: center;
   z-index: 2;
+}
+
+.catalogue-carte-btn {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 0;
+  margin-top: var(--espace-moyen-petit);
+  background: var(--rouge-vin-profond);
+  color: var(--blanc-fonce);
+  border: var(--espace-mini) solid var(--noir-profond);
+  padding: var(--espace-moyen-petit);
+  font-size: var(--fs-16);
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: var(--espace-moyen-mini);
+  text-decoration: none;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+  right: var(--espace-moyen);
+  top: -10px;
 }
