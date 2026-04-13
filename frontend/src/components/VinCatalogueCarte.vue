@@ -16,6 +16,14 @@
             :style="{ backgroundColor: chercherCouleur(vin.couleur) }"
           ></span>
         </p>
+        <div>
+          <router-link
+            class="catalogue-carte-btn"
+            :to="`/bouteille/AjouterBouteille/${vin.id}`"
+          >
+            Ajouter au cellier
+          </router-link>
+        </div>
       </div>
     </div>
     <div class="hover-info" :class="{ active: montrerInfo }">
