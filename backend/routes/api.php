@@ -7,6 +7,7 @@ use App\Http\Controllers\CellierController;
 use App\Http\Controllers\CellierVinController;
 use App\Http\Controllers\UsagerController;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -50,4 +51,10 @@ Route::middleware(['web', 'auth'])->group(function () {
     Route::get('/celliers', [CellierController::class, 'index']);
     Route::delete('/supprimer-cellier/{cellier}', [CellierController::class, 'destroy']);
     Route::get('/cellier-vin/{id}', [CellierVinController::class, 'show']);
+    // Route pour gerer les bouteilles dans les celliers
+    Route::post('/ajouter-bouteille', [CellierVinController::class, 'store']);
+
+    //Routes pour la gestion des bouteilles dans les celliers (CellierVins)
+    Route::get('/detail-cellier/{id}', [CellierVinController::class, 'index']);
+    Route::delete('/cellier-vins/{cellierVin}', [CellierVinController::class, 'destroy']);
 });

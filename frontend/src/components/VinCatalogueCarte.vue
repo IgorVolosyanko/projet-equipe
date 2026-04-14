@@ -2,7 +2,7 @@
   <div class="catalogue-carte">
     <div class="media">
       <div class="image-conteneur">
-        <img :src="vin.image_url" class="image" :alt="vin.name" />
+        <img :src="vin.image_url" class="image" :alt="vin.nom" />
         <div class="prix">{{ vin.prix }}$</div>
       </div>
 
@@ -16,6 +16,14 @@
             :style="{ backgroundColor: chercherCouleur(vin.couleur) }"
           ></span>
         </p>
+        <div>
+          <router-link
+            class="catalogue-carte-btn"
+            :to="`/bouteille/AjouterBouteille/${vin.id}`"
+          >
+            Ajouter au cellier
+          </router-link>
+        </div>
       </div>
     </div>
     <div class="hover-info" :class="{ active: montrerInfo }">
