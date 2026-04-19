@@ -169,3 +169,15 @@ export default {
   },
 };
 </script>
+<style>
+  .nom {
+    font-size: 1.1rem;
+    line-height: 1.2;
+    min-height: 2.4em;
+    max-height: 2.4em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+</style>
