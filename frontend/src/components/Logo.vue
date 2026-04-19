@@ -10,3 +10,14 @@ export default {
   name: "Logo",
 };
 </script>
+
+<style scoped>
+@media (min-width: 1024px) {
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+</style>

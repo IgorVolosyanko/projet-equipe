@@ -11,7 +11,7 @@
     <div class="media">
       <div class="image-conteneur">
         <img :src="vin.image_url" class="image" :alt="vin.nom" />
-        <div class="prix">{{ vin.prix }}$</div>
+        <div class="prix">{{ prixFormate }}$</div>
       </div>
 
       <div class="contenu">
@@ -89,6 +89,11 @@ export default {
       const num = parseFloat(this.vin.alcohol);
       if (isNaN(num)) return this.vin.alcohol;
       return num.toFixed(2);
+    },
+
+  prixFormate() {
+    if (!this.vin.prix) return "0.00";
+      return Number(this.vin.prix).toFixed(2);
     },
   },
 
@@ -169,3 +174,27 @@ export default {
   },
 };
 </script>
+<style scoped>
+@media (min-width: 1024px) {
+  .catalogue-carte {
+    border: 1px solid var(--gris-clair);
+    box-shadow: 0 2px 8px var(--noir-semi-transparent);
+    border-radius: 15px;
+    background: var(--blanc-clair);
+  }
+
+  .info-btn, 
+  .fixed-btn, 
+  .catalogue-carte-btn, 
+  .liste-btn {
+    border: 1px solid var(--gris-clair);
+    box-shadow: 0 1px 3px var(--noir-tres-transparent);
+  }
+
+  .catalogue-carte:hover {
+    border-color: var(--gris-semi-transparent);
+    box-shadow: 0 4px 12px var(--noir-semi-transparent);
+    transform: translateY(-2px);
+  }
+}  
+</style>
