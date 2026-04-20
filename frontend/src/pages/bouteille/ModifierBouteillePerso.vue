@@ -156,11 +156,7 @@ export default {
         // Récupérer le SKU et l'ID du cellier depuis les paramètres de l'URL
         const sku = this.$route.params.sku;
 
-        const cellier_id = null;
-
-        if(this.$route.params.cellier_id){
-          cellier_id = this.$route.params.cellier_id;
-        }
+        const cellier_id = this.$route.params.cellier_id;
 
         // envoyer la requête put pour modifier la bouteille
         const response = await api.put(`/modifier-bouteille-perso/${sku}`, {
@@ -177,7 +173,7 @@ export default {
         });
 
         // réinitialiser les champs du formulaire après la modification
-        this.messageSucces = "La bouteille a bien été modifiée.";
+        this.message = "";
 
         this.nom = "";
         this.prix = "";
@@ -193,13 +189,11 @@ export default {
         // afficher un message de succès et rediriger vers le catalogue après 2 secondes
         this.messageSucces = "Votre bouteille a été modifiée avec succès !";
 
-        if(this.$route.params.cellier_id){
-          setTimeout(() => {
-            this.messageSucces = "";
-            // rediriger vers la page de détail du cellier
-            this.$router.push(`/detail-cellier/${cellier_id}`);
-          }, 3000);
-        }
+        setTimeout(() => {
+          this.messageSucces = "";
+          // rediriger vers la page de détail du cellier
+          this.$router.push(`/detail-cellier/${cellier_id}`);
+        }, 1000);
 
         // gestion des erreurs de validation et autres erreurs
       } catch (erreur) {
