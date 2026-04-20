@@ -374,9 +374,6 @@ export default {
 
 <style scoped>
 .home {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
   min-height: 100vh;
 }
 
@@ -414,6 +411,12 @@ export default {
 }
 
 @media (min-width: 1024px) {
+  .home {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
   .mobile-only {
     display: none !important;
   }
