@@ -56,6 +56,7 @@
         <p>Alcool : {{ Number(vin.degre_alcool).toFixed(1) }} %</p>
         <p>Sucre : {{ vin.taux_sucre }}</p>
         <p>Millésime : {{ vin.annee }}</p>
+        <p>Format (ml) : {{ vin.format }}</p>
       </div>
     </div>
     <!-- Bouton pour basculer l'affichage des informations supplémentaires -->
