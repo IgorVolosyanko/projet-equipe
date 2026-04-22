@@ -112,28 +112,29 @@
         {{ bouteille.messageErreur }}
       </div>
 
-      <div class="nom-cellier">
-        <div class="vin-cellier-carte">
-          <img :src="bouteille.vin.image_url" class="image-vin" />
-          <div>
-            <h3>{{ bouteille.vin.nom }}</h3>
-            <p>Cellier : {{ bouteille.cellier.nom }}</p>
-            <p>Prix : {{ bouteille.vin.prix }}$</p>
-            <p>Quantité : {{ bouteille.quantite }}</p>
-            <button
-              @click="modifierQuantiteVin(bouteille.quantite - 1, bouteille.id)"
-              class="btn-qte"
-              :disabled="bouteille.quantite <= 1"
-            >
-              <CircleMinus />
-            </button>
-            <button
-              @click="modifierQuantiteVin(bouteille.quantite + 1, bouteille.id)"
-              class="btn-qte"
-            >
-              <CirclePlus />
-            </button>
-          </div>
+      <div class="carte-bouteille">
+        <img :src="bouteille.vin.image_url" class="image-vin" />
+
+        <div class="info">
+          <h3>{{ bouteille.vin.nom }}</h3>
+          <p>Cellier : {{ bouteille.cellier.nom }}</p>
+          <p>Prix : {{ bouteille.vin.prix }}$</p>
+          <p>Quantité : {{ bouteille.quantite }}</p>
+
+          <button
+            @click="modifierQuantiteVin(bouteille.quantite - 1, bouteille.id)"
+            class="btn-qte"
+            :disabled="bouteille.quantite <= 1"
+          >
+            <CircleMinus />
+          </button>
+
+          <button
+            @click="modifierQuantiteVin(bouteille.quantite + 1, bouteille.id)"
+            class="btn-qte"
+          >
+            <CirclePlus />
+          </button>
         </div>
         <!-- boutons d'action pour chaque bouteille : Afficher les détails, ajouter à la liste de courses, supprimer -->
         <div class="bouton-cellier">
@@ -276,13 +277,7 @@ export default {
       return [...this.filters.degres]
         .map((d) => Number(d))
         .filter((d) => !isNaN(d))
-        .sort((a, b) => a - b)
-        .map((d) =>
-          d.toLocaleString("fr-CA", {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 2,
-          }),
-        );
+        .sort((a, b) => a - b);
     },
   },
   methods: {

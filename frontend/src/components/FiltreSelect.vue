@@ -73,7 +73,11 @@ export default {
 
   methods: {
     ajouterSelection() {
-      if (this.selectedItem && !this.localValue.includes(this.selectedItem)) {
+      if (
+        this.selectedItem !== null &&
+        this.selectedItem !== undefined &&
+        !this.localValue.includes(this.selectedItem)
+      ) {
         this.localValue.push(this.selectedItem);
         this.emitModifie();
       }

@@ -53,7 +53,7 @@
       <div class="info-media">
         <p>Région : {{ vin.region }}</p>
         <p>Cépage : {{ vin.cepage }}</p>
-        <p>Alcool : {{ Number(vin.degre_alcool).toFixed(1) }} %</p>
+        <p>Alcool : {{ Number(vin.degre_alcool) }} %</p>
         <p>Sucre : {{ vin.taux_sucre }}</p>
         <p>Millésime : {{ vin.annee }}</p>
         <p>Format (ml) : {{ vin.format }}</p>
